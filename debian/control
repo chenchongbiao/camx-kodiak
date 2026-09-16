@@ -1,0 +1,20 @@
+Source: camx-kodiak
+Maintainer: "Radxa Computer Co., Ltd" <dev@radxa.com>
+Section: admin
+Priority: standard
+Standards-Version: 4.6.0
+Build-Depends: debhelper-compat (= 13),
+               debhelper (>=13~),
+               devscripts,
+               lintian,
+               dh-exec,
+               pandoc,
+
+Package: camx-kodiak
+Architecture: all
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+Description: camx-kodiak
+ This package provides the camx-kodiak.
+
