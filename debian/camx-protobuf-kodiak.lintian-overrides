@@ -1,0 +1,4 @@
+# Protobuf and utf8_range are shipped as one matched Kodiak runtime set.
+package-name-doesnt-match-sonames
+# This is an internal platform package, not a Debian archive upload.
+initial-upload-closes-no-bugs

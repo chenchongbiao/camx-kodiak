@@ -1,0 +1,6 @@
+package-name-doesnt-match-sonames
+shared-library-lacks-prerequisites
+initial-upload-closes-no-bugs
+# These small Abseil libraries use C++/libm or sibling Abseil libraries,
+# with no direct libc calls; --as-needed omits the unused libc dependency.
+camx-abseil-kodiak: library-not-linked-against-libc

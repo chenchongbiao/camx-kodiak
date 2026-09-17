@@ -1,6 +1,8 @@
-camx-kodiak (0.1.0-1) UNRELEASED; urgency=medium
+camx-kodiak (1.0.25-1) UNRELEASED; urgency=medium
 
   * Add initial Debian packaging support
+  * Add camx-kodiak-ppa-config for Kodiak library selection, camera module
+    loading and Ubuntu PPA cam-server integration.
 
  -- "Radxa Computer Co., Ltd" <dev@radxa.com>  Thu, 01 Jan 1970 08:00:00 +0800
 

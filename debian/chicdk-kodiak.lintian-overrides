@@ -1,0 +1,6 @@
+# Qualcomm's prebuilt Kodiak binaries search their bundled CamX runtime directory.
+chicdk-kodiak: custom-library-search-path
+wrong-name-for-upstream-changelog
+# These prebuilt plugins use their declared C++/libm/CamX dependencies
+# without direct libc calls. Preserve the validated vendor ELF files.
+chicdk-kodiak: library-not-linked-against-libc
