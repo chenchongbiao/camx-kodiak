@@ -1,0 +1,12 @@
+camx-protobuf-sdk/usr/include/google usr/include
+camx-protobuf-sdk/usr/include/upb usr/include
+camx-protobuf-sdk/usr/include/utf8_*.h usr/include
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/libprotobuf.so usr/lib/aarch64-linux-gnu
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/libprotobuf-lite.so usr/lib/aarch64-linux-gnu
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/libprotoc.so usr/lib/aarch64-linux-gnu
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/libutf8_*.so usr/lib/aarch64-linux-gnu
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/libupb.a usr/lib/aarch64-linux-gnu
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/cmake/protobuf usr/lib/aarch64-linux-gnu/cmake
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/cmake/utf8_range usr/lib/aarch64-linux-gnu/cmake
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/pkgconfig/protobuf*.pc usr/lib/aarch64-linux-gnu/pkgconfig
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/pkgconfig/utf8_*.pc usr/lib/aarch64-linux-gnu/pkgconfig
