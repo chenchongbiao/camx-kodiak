@@ -1,0 +1,2 @@
+camx-protobuf-sdk/usr/bin/protoc* usr/bin
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/libprotoc.so.33.6.0 usr/lib/aarch64-linux-gnu

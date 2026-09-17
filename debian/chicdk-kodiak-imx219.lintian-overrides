@@ -1,0 +1,2 @@
+# Preserve the validated sensor plugin byte-for-byte, including debug metadata.
+chicdk-kodiak-imx219: unstripped-binary-or-object

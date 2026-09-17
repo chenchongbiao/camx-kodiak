@@ -1,0 +1,6 @@
+# Protobuf upstream does not install manual pages for protoc or its upb plugins.
+no-manual-page
+# libprotoc is shipped with the compiler because it is not needed by protobuf runtime consumers.
+package-name-doesnt-match-sonames
+# This is an internal platform package, not a Debian archive upload.
+initial-upload-closes-no-bugs

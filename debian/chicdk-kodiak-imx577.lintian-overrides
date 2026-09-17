@@ -1,0 +1,7 @@
+# Qualcomm's prebuilt IMX577 plugin searches the bundled CamX runtime directory.
+chicdk-kodiak-imx577: custom-library-search-path
+# Preserve the validated prebuilt sensor plugin byte-for-byte.
+chicdk-kodiak-imx577: unstripped-binary-or-object
+# These prebuilt plugins use their declared C++/libm/CamX dependencies
+# without direct libc calls. Preserve the validated vendor ELF files.
+chicdk-kodiak-imx577: library-not-linked-against-libc

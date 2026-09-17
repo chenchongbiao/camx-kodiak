@@ -1,0 +1,4 @@
+camx-protobuf-sdk/usr/include/absl usr/include
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/libabsl_*.so usr/lib/aarch64-linux-gnu
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/cmake/absl usr/lib/aarch64-linux-gnu/cmake
+camx-protobuf-sdk/usr/lib/aarch64-linux-gnu/pkgconfig/absl_*.pc usr/lib/aarch64-linux-gnu/pkgconfig

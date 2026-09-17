@@ -1,0 +1,5 @@
+usr/lib/aarch64-linux-gnu/libqmmf_recorder_service_kodiak.so.1 usr/lib/camx/kodiak/ppa-compat/libqmmf_recorder_service.so.1
+usr/lib/aarch64-linux-gnu/libqmmf_camera_adaptor_kodiak.so.1 usr/lib/camx/kodiak/ppa-compat/libqmmf_camera_adaptor.so.1
+usr/lib/aarch64-linux-gnu/libqmmf_memory_interface_kodiak.so.1 usr/lib/camx/kodiak/ppa-compat/libqmmf_memory_interface.so.1
+usr/lib/camx/kodiak/libcamera_hardware.so.0 usr/lib/camx/kodiak/ppa-compat/libcamx_hardware.so.1
+usr/lib/camx/kodiak/libcamera_metadata.so.0 usr/lib/camx/kodiak/ppa-compat/libcamx_metadata.so.1

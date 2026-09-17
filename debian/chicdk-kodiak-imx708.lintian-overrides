@@ -1,0 +1,3 @@
+# Preserve the validated sensor ELF file byte-for-byte; the build deliberately
+# excludes this package from stripping.
+chicdk-kodiak-imx708: unstripped-binary-or-object

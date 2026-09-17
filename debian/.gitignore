@@ -8,3 +8,16 @@
 /*.substvars
 /tmp
 
+/camxlib-kodiak/
+/camx-kodiak/
+/camx-kodiak-ppa-config/
+/chicdk-kodiak/
+/camx-protobuf-kodiak/
+/camx-protobuf-kodiak-dev/
+/camx-protobuf-kodiak-compiler/
+/camx-abseil-kodiak/
+/camx-abseil-kodiak-dev/
+/chicdk-kodiak-imx415
+/chicdk-kodiak-imx577
+/chicdk-kodiak-imx219
+/chicdk-kodiak-imx708

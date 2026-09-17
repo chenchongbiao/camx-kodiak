@@ -4,17 +4,161 @@ Section: admin
 Priority: standard
 Standards-Version: 4.6.0
 Build-Depends: debhelper-compat (= 13),
+               dh-sequence-elf-tools,
                debhelper (>=13~),
+               cmake,
+               curl,
                devscripts,
                lintian,
                dh-exec,
+               git,
+               ninja-build,
                pandoc,
+               zlib1g-dev,
 
-Package: camx-kodiak
-Architecture: all
+Package: camxlib-kodiak
+Architecture: any
 Section: admin
 Priority: optional
 Depends: ${misc:Depends},
-Description: camx-kodiak
- This package provides the camx-kodiak.
+         libc6,
+         camx-protobuf-kodiak (= ${binary:Version}),
+Description: Qualcomm CamX common libraries for Kodiak
+ Prebuilt Qualcomm CamX common utilities, image processing libraries,
+ and platform support libraries for QCS6490/Kodiak.
+
+Package: camx-kodiak
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         libc6,
+         camxlib-kodiak (= ${binary:Version}),
+Description: Qualcomm CamX engine for Kodiak
+ Prebuilt Qualcomm CamX engine and camera pipeline libraries for
+ QCS6490/Kodiak.
+
+Package: camx-kodiak-ppa-config
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         camx-kodiak (= ${binary:Version}),
+         libqmmf-server-lib,
+Description: Ubuntu PPA camera service integration for Qualcomm Kodiak
+ Compatibility library links and systemd configuration for using the
+ Ubuntu hardware ISP PPA camera service with the Qualcomm Kodiak CamX
+ and CHI/CDK runtime. Selects the Kodiak QMMF and camera HAL libraries
+ for cam-server.
+ Camera services, drivers, CHI/CDK components, platform firmware and sensor
+ data must be installed separately.
+
+Package: chicdk-kodiak
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         libc6,
+         camx-kodiak (= ${binary:Version}),
+Description: Qualcomm CHI/CDK camera components for Kodiak
+ Prebuilt Qualcomm CHI/CDK components, common sensor modules, tuning data,
+ and camera use-case libraries for QCS6490/Kodiak.
+
+Package: chicdk-kodiak-imx577
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         chicdk-kodiak (= ${binary:Version}),
+Description: Sony IMX577 camera data for Qualcomm CHI/CDK Kodiak
+ Prebuilt IMX577 sensor library, camera module configurations, and tuning
+ data for the QCS6490/Kodiak camera stack.
+
+Package: chicdk-kodiak-imx415
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         chicdk-kodiak (= ${binary:Version}),
+Description: Sony IMX415 camera data for Qualcomm CHI/CDK Kodiak
+ Validated IMX415 sensor library, camera module configuration, and tuning
+ data maintained for the QCS6490/Kodiak camera stack.
+
+Package: chicdk-kodiak-imx219
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         libc6,
+         chicdk-kodiak (= ${binary:Version}),
+Description: Sony IMX219 camera data for Qualcomm CHI/CDK Kodiak
+ Prebuilt IMX219 sensor library, CAM2 and CAM3 module configurations, and
+ tuning data for the QCS6490/Kodiak camera stack.
+
+Package: chicdk-kodiak-imx708
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         libc6,
+         chicdk-kodiak (= ${binary:Version}),
+Description: Sony IMX708 camera data for Qualcomm CHI/CDK Kodiak
+ Prebuilt IMX708 sensor library, CAM2 and CAM3 module configurations,
+ and independent tuning with lens shading disabled for the QCS6490/Kodiak
+ camera stack.
+ Automatic exposure and white balance remain enabled.
+
+Package: camx-protobuf-kodiak
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         camx-abseil-kodiak (= ${binary:Version}),
+Description: Protobuf 33.6 runtime for Qualcomm CamX Kodiak
+ Protobuf 33.6 runtime libraries built for the Kodiak camera stack.
+
+Package: camx-protobuf-kodiak-dev
+Architecture: any
+Section: libdevel
+Priority: optional
+Depends: ${misc:Depends},
+         camx-protobuf-kodiak (= ${binary:Version}),
+         camx-abseil-kodiak-dev (= ${binary:Version}),
+Description: Protobuf 33.6 development files for Qualcomm CamX Kodiak
+ Headers, unversioned linker entries, pkg-config data, and CMake metadata
+ for building Kodiak camera software against Protobuf 33.6.
+
+Package: camx-protobuf-kodiak-compiler
+Architecture: any
+Section: devel
+Priority: optional
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         camx-protobuf-kodiak (= ${binary:Version}),
+         camx-abseil-kodiak (= ${binary:Version}),
+Description: Protobuf 33.6 compiler for Qualcomm CamX Kodiak
+ The protoc 33.6 compiler and its compiler runtime library.
+
+Package: camx-abseil-kodiak
+Architecture: any
+Section: libs
+Priority: optional
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Conflicts: camx-service-absl,
+Replaces: camx-service-absl,
+Description: Abseil 20260107 runtime for Qualcomm CamX Kodiak
+ Shared Abseil libraries with the 2601 ABI used by the Kodiak Protobuf
+ 33.6 runtime.
+
+Package: camx-abseil-kodiak-dev
+Architecture: any
+Section: libdevel
+Priority: optional
+Depends: ${misc:Depends},
+         camx-abseil-kodiak (= ${binary:Version}),
+Description: Abseil 20260107 development files for Qualcomm CamX Kodiak
+ Headers, unversioned linker entries, pkg-config data, and CMake metadata
+ for the Abseil libraries used by Kodiak camera software.
 
