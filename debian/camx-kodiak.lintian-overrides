@@ -1,0 +1,9 @@
+# Qualcomm's prebuilt Kodiak binaries search their bundled CamX runtime directory.
+camx-kodiak: custom-library-search-path RUNPATH /usr/lib/camx/kodiak [*]
+# Upstream settings plugin has no direct libc dependency.
+camx-kodiak: library-not-linked-against-libc [usr/lib/camx/kodiak/com.qti.settings.kodiak.so.0.1.0]
+# This upstream binary package ships both link-time symlinks and runtime libraries.
+camx-kodiak: link-to-shared-library-in-wrong-package * [usr/lib/libcamx_hardware_kodiak.so]
+camx-kodiak: link-to-shared-library-in-wrong-package * [usr/lib/libcamxexternalformatutils_kodiak.so]
+# Kodiak's public HAL and format libraries are grouped in one binary package.
+camx-kodiak: package-name-doesnt-match-sonames libcamx-hardware-kodiak1 libcamxexternalformatutils-kodiak0

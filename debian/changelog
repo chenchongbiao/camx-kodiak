@@ -1,4 +1,4 @@
-camx-kodiak (0.1.0-1) UNRELEASED; urgency=medium
+camx-kodiak (1.0.25-1) UNRELEASED; urgency=medium
 
   * Add initial Debian packaging support
 

@@ -1,0 +1,6 @@
+# The validated prebuilt IMX415 plugin searches the bundled CamX runtime directory.
+chicdk-kodiak-imx415: custom-library-search-path RUNPATH /usr/lib/camx/kodiak [usr/lib/camx/kodiak/camera/com.qti.sensor.imx415.so.0.1.0]
+# The upstream sensor plugin does not link libc directly.
+chicdk-kodiak-imx415: library-not-linked-against-libc [usr/lib/camx/kodiak/camera/com.qti.sensor.imx415.so.0.1.0]
+# Keep the validated vendor binary byte-identical to the maintained source file.
+chicdk-kodiak-imx415: unstripped-binary-or-object [usr/lib/camx/kodiak/camera/com.qti.sensor.imx415.so.0.1.0]

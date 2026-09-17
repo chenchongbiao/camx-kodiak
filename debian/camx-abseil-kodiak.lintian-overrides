@@ -1,0 +1,7 @@
+# Abseil is intentionally shipped as one matched ABI set rather than one Debian package per micro-library.
+package-name-doesnt-match-sonames
+# Some upstream Abseil micro-libraries contain only ABI anchors or forwarding code and need no libc symbols.
+library-not-linked-against-libc
+shared-library-lacks-prerequisites
+# This is an internal platform package, not a Debian archive upload.
+initial-upload-closes-no-bugs

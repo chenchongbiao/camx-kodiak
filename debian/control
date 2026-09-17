@@ -5,16 +5,122 @@ Priority: standard
 Standards-Version: 4.6.0
 Build-Depends: debhelper-compat (= 13),
                debhelper (>=13~),
+               cmake,
+               curl,
                devscripts,
                lintian,
                dh-exec,
+               git,
+               ninja-build,
                pandoc,
+               zlib1g-dev,
 
-Package: camx-kodiak
-Architecture: all
+Package: camxlib-kodiak
+Architecture: arm64
 Section: admin
 Priority: optional
 Depends: ${misc:Depends},
-Description: camx-kodiak
- This package provides the camx-kodiak.
+         libc6,
+         camx-protobuf-kodiak (= ${binary:Version}),
+Description: Qualcomm CamX common libraries for Kodiak
+ Prebuilt Qualcomm CamX common utilities, image processing libraries,
+ and platform support libraries for QCS6490/Kodiak.
+
+Package: camx-kodiak
+Architecture: arm64
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         libc6,
+         camxlib-kodiak (= ${binary:Version}),
+Description: Qualcomm CamX engine for Kodiak
+ Prebuilt Qualcomm CamX engine and camera pipeline libraries for
+ QCS6490/Kodiak.
+
+Package: chicdk-kodiak
+Architecture: arm64
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         libc6,
+         camx-kodiak (= ${binary:Version}),
+Description: Qualcomm CHI/CDK camera components for Kodiak
+ Prebuilt Qualcomm CHI/CDK components, common sensor modules, tuning data,
+ and camera use-case libraries for QCS6490/Kodiak.
+
+Package: chicdk-kodiak-imx577
+Architecture: arm64
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         chicdk-kodiak (= ${binary:Version}),
+Replaces: chicdk-kodiak (<= 1.0.25-1),
+Description: Sony IMX577 camera data for Qualcomm CHI/CDK Kodiak
+ Prebuilt IMX577 sensor library, camera module configurations, and tuning
+ data for the QCS6490/Kodiak camera stack.
+
+Package: chicdk-kodiak-imx415
+Architecture: arm64
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         chicdk-kodiak (= ${binary:Version}),
+Replaces: chicdk-kodiak (<= 1.0.25-1),
+Description: Sony IMX415 camera data for Qualcomm CHI/CDK Kodiak
+ Validated IMX415 sensor library, camera module configuration, and tuning
+ data maintained for the QCS6490/Kodiak camera stack.
+
+Package: camx-protobuf-kodiak
+Architecture: arm64
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         camx-abseil-kodiak (= ${binary:Version}),
+Description: Protobuf 33.6 runtime for Qualcomm CamX Kodiak
+ Protobuf 33.6 runtime libraries built for the Kodiak camera stack.
+
+Package: camx-protobuf-kodiak-dev
+Architecture: arm64
+Section: libdevel
+Priority: optional
+Depends: ${misc:Depends},
+         camx-protobuf-kodiak (= ${binary:Version}),
+         camx-abseil-kodiak-dev (= ${binary:Version}),
+Description: Protobuf 33.6 development files for Qualcomm CamX Kodiak
+ Headers, unversioned linker entries, pkg-config data, and CMake metadata
+ for building Kodiak camera software against Protobuf 33.6.
+
+Package: camx-protobuf-kodiak-compiler
+Architecture: arm64
+Section: devel
+Priority: optional
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         camx-protobuf-kodiak (= ${binary:Version}),
+         camx-abseil-kodiak (= ${binary:Version}),
+Description: Protobuf 33.6 compiler for Qualcomm CamX Kodiak
+ The protoc 33.6 compiler and its compiler runtime library.
+
+Package: camx-abseil-kodiak
+Architecture: arm64
+Section: libs
+Priority: optional
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Conflicts: camx-service-absl,
+Replaces: camx-service-absl,
+Description: Abseil 20260107 runtime for Qualcomm CamX Kodiak
+ Shared Abseil libraries with the 2601 ABI used by the Kodiak Protobuf
+ 33.6 runtime.
+
+Package: camx-abseil-kodiak-dev
+Architecture: arm64
+Section: libdevel
+Priority: optional
+Depends: ${misc:Depends},
+         camx-abseil-kodiak (= ${binary:Version}),
+Description: Abseil 20260107 development files for Qualcomm CamX Kodiak
+ Headers, unversioned linker entries, pkg-config data, and CMake metadata
+ for the Abseil libraries used by Kodiak camera software.
 
