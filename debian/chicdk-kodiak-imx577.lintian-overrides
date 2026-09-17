@@ -1,0 +1,6 @@
+# Qualcomm's prebuilt IMX577 plugin searches the bundled CamX runtime directory.
+chicdk-kodiak-imx577: custom-library-search-path RUNPATH /usr/lib/camx/kodiak [usr/lib/camx/kodiak/camera/com.qti.sensor.cmk_imx577.so.0.1.0]
+# The upstream sensor plugin does not link libc directly.
+chicdk-kodiak-imx577: library-not-linked-against-libc [usr/lib/camx/kodiak/camera/com.qti.sensor.cmk_imx577.so.0.1.0]
+# Preserve the validated prebuilt sensor plugin byte-for-byte.
+chicdk-kodiak-imx577: unstripped-binary-or-object [usr/lib/camx/kodiak/camera/com.qti.sensor.cmk_imx577.so.0.1.0]

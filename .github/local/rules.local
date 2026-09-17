@@ -1,0 +1,28 @@
+# Staging is prepared by main_build before debhelper runs.
+override_dh_auto_build:
+	:
+
+# Upstream marks sensor and tuning data executable; they are not programs.
+override_dh_fixperms:
+	dh_fixperms
+	find debian/chicdk-kodiak/usr/lib/camx/kodiak/camera -maxdepth 1 -type f -name '*.bin' -exec chmod 0644 {} +
+	find debian/chicdk-kodiak-imx577/usr/lib/camx/kodiak/camera -maxdepth 1 -type f -name '*.bin' -exec chmod 0644 {} +
+	find debian/chicdk-kodiak-imx415/usr/lib/camx/kodiak/camera -maxdepth 1 -type f -name '*.bin' -exec chmod 0644 {} +
+
+# Keep the separately maintained sensor plugins byte-identical to their
+# validated source binaries; they do not need generated dbgsym packages.
+override_dh_strip:
+	dh_strip -Nchicdk-kodiak-imx577 -Nchicdk-kodiak-imx415
+
+# Qualcomm ships these ELF files as prebuilt binaries; dwz cannot process
+# their vendor debug metadata reliably.
+override_dh_dwz:
+	:
+
+# CHI plugins live in a private directory and do not need ldconfig.
+override_dh_makeshlibs:
+	dh_makeshlibs -Nchicdk-kodiak -Nchicdk-kodiak-imx577 -Nchicdk-kodiak-imx415
+
+# Vendor CamX target libraries are not available on the packaging build host.
+override_dh_shlibdeps:
+	dh_shlibdeps -X/usr/lib/camx/kodiak -Xlibcamx -Xchi

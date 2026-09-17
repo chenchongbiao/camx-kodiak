@@ -20,6 +20,20 @@
 # Output folder
 /out
 
+# CamX downloaded prebuilt archives
+/*.tar.gz
+/*.tar.gz.tmp
+/*.corrupt-*
+
+# CamX package staging directories
+/camxlib-kodiak/
+/camx-kodiak/
+/chicdk-kodiak/
+/chicdk-kodiak-imx577/
+/camx-protobuf-sdk/
+/sources/
+/.build-camx-protobuf-sdk/
+
 # Logs
 /*.log
 

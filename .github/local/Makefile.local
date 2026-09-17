@@ -1,0 +1,13 @@
+# Keep source acquisition and staging outside the generated rsdk Makefile.
+CUSTOM_DEBUILD_ARG := -aarm64 -Pcross
+
+post_build_dep: arm64_crossbuild_dep
+
+pre_debuild: update-camx-kodiak build-camx-protobuf-sdk
+
+.PHONY: update-camx-kodiak build-camx-protobuf-sdk
+update-camx-kodiak:
+	scripts/update-camx-kodiak.sh
+
+build-camx-protobuf-sdk:
+	scripts/build-camx-protobuf-sdk.sh

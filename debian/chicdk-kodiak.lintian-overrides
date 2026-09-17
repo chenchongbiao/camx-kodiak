@@ -1,0 +1,5 @@
+# Qualcomm's prebuilt Kodiak binaries search their bundled CamX runtime directory.
+chicdk-kodiak: custom-library-search-path RUNPATH /usr/lib/camx/kodiak [*]
+# Upstream sensor and customization plugins do not link libc directly.
+chicdk-kodiak: library-not-linked-against-libc [usr/lib/camx/kodiak/camera/com.qti.sensor.*.so.0.1.0]
+chicdk-kodiak: library-not-linked-against-libc [usr/lib/camx/kodiak/libchicustomization.so.0.1.0]

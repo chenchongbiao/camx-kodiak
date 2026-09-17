@@ -1,0 +1,6 @@
+# Qualcomm's prebuilt Kodiak binaries search their bundled CamX runtime directory.
+camxlib-kodiak: custom-library-search-path RUNPATH /usr/lib/camx/kodiak [*]
+# Upstream includes headers and the link-time symlink alongside its runtime library.
+camxlib-kodiak: link-to-shared-library-in-wrong-package * [usr/lib/libcamx_metadata_kodiak.so]
+# Kodiak's metadata library retains the upstream package name.
+camxlib-kodiak: package-name-doesnt-match-sonames libcamx-metadata-kodiak1
