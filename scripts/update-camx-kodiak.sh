@@ -24,6 +24,7 @@ CHICDK_IMX577_STAGE="chicdk-kodiak-imx577"
 CHICDK_IMX415_STAGE="chicdk-kodiak-imx415"
 CHICDK_IMX219_STAGE="chicdk-kodiak-imx219"
 CHICDK_IMX708_STAGE="chicdk-kodiak-imx708"
+CHICDK_AR0234_STAGE="chicdk-kodiak-ar0234"
 
 fetch_archive() {
     local archive="$1"
@@ -309,6 +310,16 @@ stage_chicdk_imx708() {
     fi
 }
 
+stage_chicdk_ar0234() {
+    local package_camera="${CHICDK_AR0234_STAGE}/usr/lib/camx/kodiak/camera"
+
+    if [[ "$(readlink "${package_camera}/com.qti.sensor.ar0234.so.0")" != \
+        "com.qti.sensor.ar0234.so.0.1.0" ]]; then
+        echo "ERROR: invalid AR0234 sensor SONAME symlink" >&2
+        return 1
+    fi
+}
+
 main() {
     local camxlib_tmp camx_tmp chicdk_tmp
     local camxlib_root camx_root chicdk_root
@@ -342,16 +353,18 @@ main() {
     stage_chicdk_imx415
     stage_chicdk_imx219
     stage_chicdk_imx708
+    stage_chicdk_ar0234
 
     # Fix permissions: Qualcomm archives ship with root/root ownership,
     # which breaks fakeroot + cp -a --reflink on NFS/sshfs builds.
     # Make everything readable and directories traversable.
     chmod -R a+rX "$CAMXLIB_STAGE" "$CAMX_STAGE" "$CHICDK_STAGE" \
-        "$CHICDK_IMX577_STAGE" "$CHICDK_IMX415_STAGE"
+        "$CHICDK_IMX577_STAGE" "$CHICDK_IMX415_STAGE" "$CHICDK_AR0234_STAGE"
 
     echo "CamX package staging updated: ${CAMX_VERSION} (${PBT_BUILD_DATE})"
     find "$CAMXLIB_STAGE/usr" "$CAMX_STAGE/usr" "$CHICDK_STAGE/usr" \
         "$CHICDK_IMX577_STAGE/usr" "$CHICDK_IMX415_STAGE/usr" \
+        "$CHICDK_AR0234_STAGE/usr" \
         \( -type f -o -type l \) -print | sort
 }
 

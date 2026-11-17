@@ -1,0 +1,5 @@
+# The prebuilt AR0234 plugin searches the bundled CamX runtime directory.
+chicdk-kodiak-ar0234: custom-library-search-path
+# Preserve the validated sensor plugin byte-for-byte; the build deliberately
+# excludes this package from stripping.
+chicdk-kodiak-ar0234: unstripped-binary-or-object

@@ -109,6 +109,20 @@ Description: Sony IMX708 camera data for Qualcomm CHI/CDK Kodiak
  camera stack.
  Automatic exposure and white balance remain enabled.
 
+Package: chicdk-kodiak-ar0234
+Architecture: any
+Section: admin
+Priority: optional
+Depends: ${misc:Depends},
+         libc6,
+         libstdc++6,
+         chicdk-kodiak (= ${binary:Version}),
+Description: onsemi AR0234 camera data for Qualcomm CHI/CDK Kodiak
+ Validated AR0234 sensor library, CAM1 module configuration, and dedicated
+ tuning data for the QCS6490/Kodiak camera stack.
+ The tuning moves the sensor module onto its own tuning project and lowers
+ the ISP sharpening gains to suppress speckle noise on the AR0234 image.
+
 Package: camx-protobuf-kodiak
 Architecture: any
 Section: admin

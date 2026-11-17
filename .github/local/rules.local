@@ -5,7 +5,7 @@ override_dh_auto_build:
 # Upstream marks sensor and tuning data executable; they are not programs.
 override_dh_fixperms:
 	dh_fixperms
-	for package in chicdk-kodiak chicdk-kodiak-imx577 chicdk-kodiak-imx415 chicdk-kodiak-imx219 chicdk-kodiak-imx708; do \
+	for package in chicdk-kodiak chicdk-kodiak-imx577 chicdk-kodiak-imx415 chicdk-kodiak-imx219 chicdk-kodiak-imx708 chicdk-kodiak-ar0234; do \
 		camera="debian/$$package/usr/lib/camx/kodiak/camera"; \
 		if [ -d "$$camera" ]; then find "$$camera" -maxdepth 1 -type f -name '*.bin' -exec chmod 0644 {} +; fi; \
 	done
@@ -13,7 +13,8 @@ override_dh_fixperms:
 # Keep the separately maintained sensor plugins byte-identical to their
 # validated source binaries; they do not need generated dbgsym packages.
 override_dh_strip:
-	dh_strip -Nchicdk-kodiak-imx577 -Nchicdk-kodiak-imx415 -Nchicdk-kodiak-imx219 -Nchicdk-kodiak-imx708
+	dh_strip -Nchicdk-kodiak-imx577 -Nchicdk-kodiak-imx415 -Nchicdk-kodiak-imx219 \
+		-Nchicdk-kodiak-imx708 -Nchicdk-kodiak-ar0234
 
 # Qualcomm ships these ELF files as prebuilt binaries; dwz cannot process
 # their vendor debug metadata reliably.
@@ -22,7 +23,8 @@ override_dh_dwz:
 
 # CHI plugins live in a private directory and do not need ldconfig.
 override_dh_makeshlibs:
-	dh_makeshlibs -Nchicdk-kodiak -Nchicdk-kodiak-imx577 -Nchicdk-kodiak-imx415 -Nchicdk-kodiak-imx219 -Nchicdk-kodiak-imx708
+	dh_makeshlibs -Nchicdk-kodiak -Nchicdk-kodiak-imx577 -Nchicdk-kodiak-imx415 \
+		-Nchicdk-kodiak-imx219 -Nchicdk-kodiak-imx708 -Nchicdk-kodiak-ar0234
 
 # Vendor CamX target libraries are not available on the packaging build host.
 # Debian cross-toolchain runtime libraries live outside the multiarch paths.
